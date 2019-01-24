@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="DarkTheme" parent="Base.Theme.AppCompat">
+        <item name="item_shadowColor">@color/shadow</item>
+    </style>
+
+    <style name="LightTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="item_shadowColor">@color/lambdaAccentDark</item>
+    </style>
+
+    <style name="AppTheme" parent="LightTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme_Dark" parent="DarkTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme_Lambda_Dark" parent="DarkTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/lambdaPrimary</item>
+        <item name="colorPrimaryDark">@color/lambdaPrimaryDark</item>
+        <item name="colorAccent">@color/lambdaAccentLight</item>
+
+    </style>
+
+    <style name="AppTheme_Lambda" parent="LightTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/lambdaPrimary</item>
+        <item name="colorPrimaryDark">@color/lambdaPrimaryDark</item>
+        <item name="colorAccent">@color/lambdaAccentDark</item>
+    </style>
+
+</resources>
