@@ -1,6 +1,6 @@
 # Android_Sprint8Challenge_CongressDebug
 
-### Instructions
+## Instructions
 
 **Please read this entire README to make sure you understand what is expected of you before you begin.**
 
@@ -14,7 +14,7 @@ You have *3 hours*, and you should work *independently* — looking things up (s
 
 Good luck!
 
-### Screen Recording
+## Screen Recording
 
 This screen recording shows how the app should look. Use this when designing your test cases. 
 
@@ -34,4 +34,6 @@ The requirements for this project are as follows:
 
 4. Run the profiler to look for performance bugs. The app doesn't have to be perfect, but when you look at the CPU profiler, you'll see a number of glaring issues that will be a huge boost to the performance.
 
-5. After you finish with these requirements, spend the rest of the time improving coverage on your unit tests.
+## Go Further
+
+After you finish with these requirements, spend the rest of the time improving coverage on your unit tests, improving the UI tests and improving overall performance.
