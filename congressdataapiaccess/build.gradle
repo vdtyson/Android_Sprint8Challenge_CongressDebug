@@ -1,14 +1,6 @@
 apply plugin: 'com.android.library'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'library'
-            keyPassword 'Jenae-051791'
-            storeFile file('C:/Users/Chance/Google Drive/Code/keystore.jks')
-            storePassword 'Jenae-051791'
-        }
-    }
     compileSdkVersion 28
     defaultConfig {
         minSdkVersion 21
