@@ -7,14 +7,15 @@ import android.util.Log
 import com.lambdaschool.congressdataapiaccess.CongressDao
 
 object ProfileRepository {
-    fun getProfile(id: String): LiveData<CongresspersonProfile> {
+    fun getProfile(id: String?): LiveData<CongresspersonProfile> {
         Log.i("Repository", "Retreiving Data")
         val profileLiveData = MutableLiveData<CongresspersonProfile>()
 
-        val profile = CongresspersonProfile(CongressDao.getMemberDetails(id))
-        profile.image = CongressDao.getImage(profile.id)
-        profileLiveData.value = profile
-
+        id?.let {
+            val profile = CongresspersonProfile(CongressDao.getMemberDetails(id))
+            profile.image = CongressDao.getImage(profile.id)
+            profileLiveData.value = profile
+        }
         return profileLiveData
     }
 }

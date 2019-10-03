@@ -12,22 +12,21 @@ import org.json.JSONException
 
 import java.util.ArrayList
 
-class CongresspersonProfile {
+class CongresspersonProfile(
+        val firstName: String,
+        val middleName: String,
+        val lastName: String,
+        var party: String,
+        val state: String,
+        val id: String,
+        val twitterAccount: String,
+        val facebookAccount: String,
+        val district: String,
+        val phone: String, missedVotesPct: String,
+        val office: String, votesWithPartyPct: String) {
 
-    private val firstName: String
-    private val middleName: String
-    private val lastName: String
     val displayName: String
-    var party: String? = null
-        private set
-    val state: String
-    val id: String
-    val twitterAccount: String
-    val facebookAccount: String
-    val district: String
-    val phone: String
     val location: String
-    val office: String
     val missedVotesPct: Float
     private val votesWithPartyPct: Float
     var committees: ArrayList<String>? = null
@@ -52,44 +51,11 @@ class CongresspersonProfile {
             100f - this.votesWithPartyPct - this.missedVotesPct
         }
 
-    constructor() {}
-
-    /**
-     * This is a constructor
-     *
-     * @param firstName
-     * @param middleName
-     * @param lastName
-     * @param party
-     * @param state
-     * @param id
-     * @param twitterAccount
-     * @param facebookAccount
-     * @param district
-     * @param phone
-     * @param missedVotesPct
-     * @param office
-     * @param votesWithPartyPct
-     */
-    constructor(val firstName: String, middleName: String, lastName: String, party: String,
-                state: String, id: String, twitterAccount: String,
-                facebookAccount: String, district: String, phone: String,
-                missedVotesPct: String, office: String, votesWithPartyPct: String) {
-        this.firstName = firstName
-        this.middleName = middleName
-        this.lastName = lastName
-        this.state = state
-        this.office = office
-        this.district = district
+    init {
         this.location = "$state - District $district"
-        this.id = id
-        this.twitterAccount = twitterAccount
-        this.facebookAccount = facebookAccount
-        this.phone = phone
         this.missedVotesPct = java.lang.Float.parseFloat(missedVotesPct)
         this.votesWithPartyPct = java.lang.Float.parseFloat(votesWithPartyPct)
         this.displayName = buildDisplayName()
-
         when (party) {
             "R" -> this.party = REPUBLICAN
             "D" -> this.party = DEMOCRAT

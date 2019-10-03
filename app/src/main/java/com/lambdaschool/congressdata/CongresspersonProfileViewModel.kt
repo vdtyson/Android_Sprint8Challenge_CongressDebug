@@ -3,17 +3,18 @@ package com.lambdaschool.congressdata
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 
-class CongresspersonProfileViewModel(val id: String) : ViewModel() {
-    private var profile: LiveData<CongresspersonProfile>? = null
-
-    fun getProfile(): LiveData<CongresspersonProfile>? {
-        if (profile == null) {
+class CongresspersonProfileViewModel(var id: String?) : ViewModel() {
+    var profile: LiveData<CongresspersonProfile>? = null
+    get() {
+        return if (field == null) {
             loadProfile()
+        } else {
+            field
         }
-        return profile
     }
 
-    private fun loadProfile() {
+    private fun loadProfile(): LiveData<CongresspersonProfile>? {
         profile = ProfileRepository.getProfile(id)
+        return profile
     }
 }

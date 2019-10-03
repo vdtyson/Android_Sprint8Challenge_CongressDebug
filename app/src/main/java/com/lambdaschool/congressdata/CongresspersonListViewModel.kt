@@ -6,16 +6,16 @@ import android.arch.lifecycle.ViewModel
 import java.util.ArrayList
 
 class CongresspersonListViewModel : ViewModel() {
-    private var overviewList: LiveData<ArrayList<OfficialOverview>>? = null
-
-    fun getOverviewList(): LiveData<ArrayList<OfficialOverview>>? {
-        if (overviewList == null) {
+    var overviewList: LiveData<ArrayList<OfficialOverview>>? = null
+    get() {
+        if (field == null) {
             loadList()
         }
-        return overviewList
+        return field
     }
 
-    private fun loadList() {
+    private fun loadList(): LiveData<ArrayList<OfficialOverview>>? {
         overviewList = OverviewListRepository.overviewList
+        return overviewList
     }
 }
