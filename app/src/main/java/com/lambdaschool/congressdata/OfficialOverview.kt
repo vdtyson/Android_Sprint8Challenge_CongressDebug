@@ -48,6 +48,6 @@ class OfficialOverview {
             nameBuilder.append(lastName)
         }
 
-        return nameBuilder.toString().toLowerCase()
+        return nameBuilder.toString()
     }
 }
