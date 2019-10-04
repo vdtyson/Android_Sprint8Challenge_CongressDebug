@@ -20,7 +20,7 @@ class OfficialOverviewUnitTest {
         val displayName: String
         val officialOverview = OfficialOverview(firstName, middleName, lastName, party, state, id)
 
-        val expected = "first middle last"
+        val expected = "First Middle Last"
         // EXECUTE
         displayName = officialOverview.displayName!!
         // CHECK
@@ -41,11 +41,48 @@ class OfficialOverviewUnitTest {
         val displayName: String
         val officialOverview = OfficialOverview(firstName = firstName, lastName = lastName, party =  party, state = state,id =  id)
 
-        val expected = "first last"
+        val expected = "First Last"
         // EXECUTE
         displayName = officialOverview.displayName!!
         // CHECK
         assertEquals(expected, displayName)
         // Error caused by buildDisplay name have "null" instead of null
+    }
+    @Test
+    fun returnDisplayName_WithJsonNullValue() {
+        // SETUP
+        val firstName = "First"
+        val lastName = "Last"
+        val middle = "null"
+        val displayName: String
+        val expected = "First Last"
+        val officialOverview: OfficialOverview
+
+        //EXECUTE
+        officialOverview = OfficialOverview(firstName = firstName, middleName = middle, lastName = lastName)
+        displayName = officialOverview.displayName!!
+
+        // CHECK
+        assertEquals(expected, displayName)
+    }
+    @Test
+    fun returnDisplayName_WithActucalNullValue() {
+
+        // SETUP
+        val firstName = "First"
+        val mName: String? = null
+        val lName = "Last"
+        val displayName: String
+        val expected = "First Last"
+        val officialOverview: OfficialOverview
+
+        // EXECUTE
+        officialOverview = OfficialOverview(firstName = firstName, middleName = mName, lastName = lName)
+        displayName = officialOverview.displayName!!
+
+        //CHECK
+
+        assertEquals(expected,displayName)
+
     }
 }
