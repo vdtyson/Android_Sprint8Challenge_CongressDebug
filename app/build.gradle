@@ -55,5 +55,9 @@ dependencies {
     implementation 'com.facebook.stetho:stetho:1.5.1'
     implementation 'com.facebook.stetho:stetho-okhttp:1.5.1'
 
+    // Leak Canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
+
+
 
 }

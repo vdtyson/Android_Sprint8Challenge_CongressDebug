@@ -15,6 +15,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import android.widget.TextView
+import com.lambdaschool.congressdataapiaccess.CongressDao
+import kotlinx.android.synthetic.main.activity_details_view.*
+import java.util.*
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -70,14 +73,21 @@ class DetailsActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
+        fun getProfilePhoto(id: String) {
+            profile_image.setImageBitmap(CongressDao.getImage(id))
+        }
+        var profileId: String
+
         viewModel.id = memberId
 
         viewModel.profile?.observe(this, Observer<CongresspersonProfile> { profile ->
-            runOnUiThread {
 
                 assert(profile != null)
                 val officialOverview = OfficialOverview(firstName = profile!!.firstName, middleName = profile.middleName, lastName = profile.lastName, party = profile.party, state = profile.state, id = profile.id)
-                profileImage!!.setImageBitmap(profile.image)
+
+
+                profileId = profile.id
+               getProfilePhoto(profileId)
                 profileName!!.text = officialOverview.displayName
                 profileParty!!.text = officialOverview.party
                 profileDistrict!!.text = profile.location
@@ -113,8 +123,10 @@ class DetailsActivity : AppCompatActivity() {
                         startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/" + profile.office)))
                     }
                 }
-            }
         })
+
+
+
         }
 
                 /*@Override
