@@ -37,3 +37,9 @@ The requirements for this project are as follows:
 ## Go Further
 
 After you finish with these requirements, spend the rest of the time improving coverage on your unit tests, improving the UI tests and improving overall performance.
+
+## Notes
+
+1. Caught Bug in OfficialOverview where the getDisplay didn't properly return a null Json String
+2. In Details Activity: Display name in the lists used the profile object directly rather than using OfficialOverview's function get DisplayName. Because of this, null middle names were displayed as null rather than only displaying the first and last name
+3. Removes "Run on UI thread" from detail activity

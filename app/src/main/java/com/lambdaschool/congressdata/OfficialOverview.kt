@@ -15,7 +15,7 @@ class OfficialOverview {
     var id: String? = null
         private set
 
-    constructor(firstName: String, middleName: String, lastName: String, party: String, state: String, id: String) {
+    constructor(firstName: String? = null, middleName: String? = null, lastName: String? = null, party: String? = null, state: String? = null, id: String? = null) {
         this.firstName = firstName
         this.middleName = middleName
         this.lastName = lastName
@@ -37,11 +37,17 @@ class OfficialOverview {
 
     private fun buildDisplayName(): String {
         val nameBuilder = StringBuilder()
-        nameBuilder.append(firstName)
-        if (middleName != "null") {
-            nameBuilder.append(middleName).append(" ")
+        nameBuilder.append(firstName).append(" ")
+        if (middleName == "null") {
+            middleName = null
         }
-        nameBuilder.append(lastName)
-        return nameBuilder.toString().toLowerCase()
+        if (middleName != null) {
+            nameBuilder.append(middleName).append(" ")
+            nameBuilder.append(lastName)
+        } else {
+            nameBuilder.append(lastName)
+        }
+
+        return nameBuilder.toString()
     }
 }
